@@ -5,8 +5,8 @@ Start by setting up the workshop as usual.
 
 For each of the **bold** questions below:
 
-  🗣 Discuss 
-  👩‍💻 Change 
+  🗣 Discuss
+  👩‍💻 Change
   👀 Observe
   🔄 Repeat
 
@@ -22,7 +22,7 @@ For each of the **bold** questions below:
 
 **Don’t move on until you fully understand what’s happening.**
 
-Ideally you should fork thie repository, and then either clone the code to your machine using ```git clone``` or import it into repl.it using the 'import repo' button on [Repl.it](https://repl.it/~). 
+Ideally you should fork thie repository, and then either clone the code to your machine using ```git clone``` or import it into repl.it using the 'import repo' button on [Repl.it](https://repl.it/~).
 
 You can also click the below button: [![Run on Repl.it](https://repl.it/badge/github/adaapp/di-workshop-05-objects)](https://repl.it/github/adaapp/di-workshop-05-objects) However, this will not allow you to push your changes.
 
@@ -139,29 +139,29 @@ happens.
 
 | Line                                               | Expected Result | Actual Result | Were you right? Why? |
 | -------------------------------------------------- | --------------- | ------------- | -------------------- |
-| `var alex = {name: 'alex', age: 23, height: 163}`  |                 |               |                      |
-| `alex.name`                                        |                 |               |                      |
-| `alex.age`                                         |                 |               |                      |
-| `alex.age = 1000`                                  |                 |               |                      |
-| `alex` (use the ▶ to expand the object)            |                 |               |                      |
-| `alex.hairColor = 'blue'`                          |                 |               |                      |
-| `alex`                                             |                 |               |                      |
-| `var pet = {name: 'amber', type: 'dog'}`           |                 |               |                      |
-| `pet`                                              |                 |               |                      |
-| `alex.pet = pet`                                   |                 |               |                      |
-| `alex`                                             |                 |               |                      |
-| `pet.name = 'lyla'`                                |                 |               |                      |
-| `alex.pet`                                         |                 |               |                      |
-| `delete alex.pet`                                  |                 |               |                      |
-| `alex.pet`                                         |                 |               |                      |
-| `pet`                                              |                 |               |                      |
-| `alex["name"]`                                     |                 |               |                      |
-| `var someString = 'age'`                           |                 |               |                      |
-| `alex[someString]`                                 |                 |               |                      |
-| `alex[someString] = 23`                            |                 |               |                      |
-| `var weirdObj = {spooky: true}`                    |                 |               |                      |
-| `weirdObj.strange = weirdObj`                      |                 |               |                      |
-| `weirdObj` (use ▶ to expand - how far does it go?) |                 |               |                      |
+| `var alex = {name: 'alex', age: 23, height: 163}`  |  undefined      | undefined     |       yes            |
+| `alex.name`                                        |  'alex'         |        'alex' |      yes             |
+| `alex.age`                                         |        23       |      23       |          Y           |
+| `alex.age = 1000`                                  |     undefined   |    1000       | Seems like assigning a property returns it's value, unlike assigning a variable |
+| `alex` (use the ▶ to expand the object)            | {name: 'alex', age: 1000, height: 163} }    | {name: 'alex', age: 1000, height: 163} }  | Y                    |
+| `alex.hairColor = 'blue'`                          |       'blue'    |  'blue'       |     Y                |
+| `alex`                                             | {name: 'alex', age: 1000, height: 163, hairColor: 'blue'}  | Same | Yes  |
+| `var pet = {name: 'amber', type: 'dog'}`           |     undefined   |  undefined   |            y          |
+| `pet`                                              | {name: 'amber', type: 'dog'}   | {name: 'amber', type: 'dog'}  | y |
+| `alex.pet = pet`                                   | {name: 'amber', type: 'dog'}  | {name: 'amber', type: 'dog'}   | y |
+| `alex`                                             | {name: 'alex', age: 1000, height: 163, hairColor: 'blue', pet: {name: 'amber', type: 'dog'}}       |          same     |  y                    |
+| `pet.name = 'lyla'`                                |   'lyla'              |               |                      |
+| `alex.pet`                                         |  {name: 'amber', type: 'dog'}  | {name: 'lyla', type: 'dog'} |   No, it was referencing pet object, so it's also changed inside alex object   |
+| `delete alex.pet`                                  |     undefined?            |     true          |        successful delete returns true              |
+| `alex.pet`                                         |  undefined   |               |       Y               |
+| `pet`                                              |  {name: 'lyla', type: 'dog'}   |               |          Y           |
+| `alex["name"]`                                     |  'alex'         |               |           Y           |
+| `var someString = 'age'`                           |      undefined       |               |         Y             |
+| `alex[someString]`                                 |        1000         |               |         Y             |
+| `alex[someString] = 23`                            |      23           |               |         Y             |
+| `var weirdObj = {spooky: true}`                    |   undefined              |               |         y             |
+| `weirdObj.strange = weirdObj`                      |   {spooky: true}       |  {spooky: true}    |   y     |
+| `weirdObj` (use ▶ to expand - how far does it go?) |   recursive!          |        recursive       |    Y                  |
 
 Answer the following questions (you might need to do some research!)
 
@@ -177,7 +177,7 @@ Answer the following questions (you might need to do some research!)
 Take your commented sketch code from before and see if you can refactor it to
 use objects rather than arrays. If you need to, use the hints below:
 
-#### Hint 1 
+#### Hint 1
 
 You can add objects to an array.
 
@@ -190,7 +190,7 @@ for (var i = 0; i < ballCount; i = i + 1) {
 }
 ```
 
-#### Hint 2 
+#### Hint 2
 
 Try using this function:
 
